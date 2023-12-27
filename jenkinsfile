@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone the Git repository
+                git 'https://github.com/your-git-repo.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Build your Java code
+                sh 'javac HelloWorld.java'
+            }
+        }
+        
+        stage('Run') {
+            steps {
+                // Run your Java code
+                sh 'java HelloWorld'
+            }
+        }
+    }
+}
